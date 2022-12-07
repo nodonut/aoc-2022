@@ -85,7 +85,8 @@ func walkTheLine(l string) []string {
 func convertToTwoDArray(s [][]string) [][]string {
 	stack := [][]string{}
 
-	for i := 0; i <= len(s); i++ {
+	// the length for each sub array will always be same, so we can just use the length of first
+	for i := 0; i < len(s[0]); i++ {
 		level := []string{}
 		for j := 0; j < len(s); j++ {
 			if s[j][i] != "   " {
@@ -126,9 +127,8 @@ func printResult(m [][]string) {
 	result := ""
 
 	for i := 0; i < firstLength; i++ {
-		fmt.Println(len(m[i]))
 		result = result + string(m[i][len(m[i])-1][1])
 	}
 
-	fmt.Println(result)
+	fmt.Println("RESULT: ", result)
 }
